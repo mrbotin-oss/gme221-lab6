@@ -30,3 +30,8 @@
 9. Yes. A model can have high overall accuracy but still give poor spatial interpretation if it gets many predictions correct on average but fails to capture local spatial patterns, relationships, or important geographic structures.
 10. My suggestions area elevation or slope (terrain features), since topography can influence where development happens or population density, which helps capture how built-up an area is.
 
+# Spatial Misclassification
+- Wrong predictions occur across different land use classes in the study area, but they are more noticeable in certain zones where similar land use types overlap. Some misclassifications happen between closely related categories, such as different types of agricultural and special development zones, or between residential and socialized housing areas.
+- There is some spatial clustering of errors, particularly in areas where land uses are mixed or transition gradually from one type to another. These zones tend to create ambiguity for the model because boundaries between classes are not always clearly defined on the ground.
+- These errors can be explained by spatial processes such as land use mixing, gradual transitions between zoning types, and similarity in parcel characteristics within certain regions. In addition, overlapping spatial features (e.g., institutional areas near residential zones or agricultural zones near development zones) can reduce the model’s ability to clearly separate classes, leading to misclassification.
+

@@ -131,3 +131,33 @@ from sklearn.metrics import accuracy_score
 accuracy = accuracy_score(y_test, y_pred) 
 
 print("Accuracy:", accuracy) 
+
+
+# ---------------------- Apply Predictions to Spatial Data ----------------------------
+
+data["predicted_class"] = model.predict(X) 
+
+categories = ( 
+    data["ASS_CLASSI"] 
+    .astype("category") 
+    .cat.categories 
+) 
+
+data["predicted_label"] = data["predicted_class"].apply( 
+    lambda code: categories[code] 
+) 
+
+data["correct_prediction"] = ( 
+    data["ASS_CLASSI"] == 
+    data["predicted_label"] 
+) 
+
+print( 
+    data[ 
+        [ 
+            "ASS_CLASSI",
+            "predicted_label", 
+            "correct_prediction" 
+        ] 
+    ].head() 
+) 
