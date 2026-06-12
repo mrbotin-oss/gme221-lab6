@@ -25,3 +25,8 @@
 6. Distances are meaningful features because they describe how close or far spatial objects are from one another. In spatial analysis, nearby locations often have stronger relationships and similar characteristics, so distance helps capture the influence of surrounding features and provides important spatial context for machine learning models.
 7. I think distance to roads is the most influential feature because roads provide access and connectivity, which strongly affect how land is developed and used. Parcels that are closer to roads are more likely to have higher-density or commercial land-use classifications due to better accessibility and increased economic activity.
 
+# Part D. GeoAI Model Construction
+8. Spatial accuracy means how close a map or model is to reality in terms of locations and features.
+9. Yes. A model can have high overall accuracy but still give poor spatial interpretation if it gets many predictions correct on average but fails to capture local spatial patterns, relationships, or important geographic structures.
+10. My suggestions area elevation or slope (terrain features), since topography can influence where development happens or population density, which helps capture how built-up an area is.
+

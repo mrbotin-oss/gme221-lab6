@@ -17,6 +17,8 @@ schools = schools.to_crs(parcels.crs)
 tourism = tourism.to_crs(parcels.crs) 
 
 
+# -------------Part C. Spatial Feature Engineering ------------------
+
 parcels["area"] = parcels.geometry.area 
 
 parcels["perimeter"] = parcels.geometry.length 
@@ -71,3 +73,61 @@ print(
     .drop_duplicates() 
     .sort_values("landuse_code") 
 ) 
+
+
+# ------------- GeoAI Model Construction --------------------------------
+
+# encode target variable (land use class) 
+parcels_landuse["target_code"] = ( 
+    parcels_landuse["ASS_CLASSI"] 
+    .astype("category") 
+    .cat.codes 
+) 
+
+features = [ 
+    "area", 
+    "perimeter", 
+    "compactness", 
+    "dist_to_road", 
+    "dist_to_water", 
+    "dist_to_school", 
+    "dist_to_tourism", 
+    "landuse_code" 
+] 
+
+data = parcels_landuse.dropna( 
+    subset=features + ["target_code"] 
+) 
+
+X = data[features] 
+y = data["target_code"] 
+
+
+# ---------------------- Training and Testing Data ---------------------------
+
+from sklearn.model_selection import train_test_split 
+
+X_train, X_test, y_train, y_test = train_test_split( 
+    X, 
+    y, 
+    test_size=0.30, 
+    random_state=42 
+)
+
+from sklearn.ensemble import RandomForestClassifier 
+
+model = RandomForestClassifier( 
+    n_estimators=100, 
+    random_state=42 
+) 
+
+model.fit(X_train, y_train)
+
+# generate prediction
+y_pred = model.predict(X_test) 
+
+from sklearn.metrics import accuracy_score 
+
+accuracy = accuracy_score(y_test, y_pred) 
+
+print("Accuracy:", accuracy) 
