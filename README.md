@@ -30,8 +30,14 @@
 9. Yes. A model can have high overall accuracy but still give poor spatial interpretation if it gets many predictions correct on average but fails to capture local spatial patterns, relationships, or important geographic structures.
 10. My suggestions area elevation or slope (terrain features), since topography can influence where development happens or population density, which helps capture how built-up an area is.
 
-# Spatial Misclassification
+# Spatial Misclassification - Refleciton
 - Wrong predictions occur across different land use classes in the study area, but they are more noticeable in certain zones where similar land use types overlap. Some misclassifications happen between closely related categories, such as different types of agricultural and special development zones, or between residential and socialized housing areas.
 - There is some spatial clustering of errors, particularly in areas where land uses are mixed or transition gradually from one type to another. These zones tend to create ambiguity for the model because boundaries between classes are not always clearly defined on the ground.
 - These errors can be explained by spatial processes such as land use mixing, gradual transitions between zoning types, and similarity in parcel characteristics within certain regions. In addition, overlapping spatial features (e.g., institutional areas near residential zones or agricultural zones near development zones) can reduce the model’s ability to clearly separate classes, leading to misclassification.
 
+# Final Reflection Questions
+11. GeoAI uses machine learning to automatically learn patterns from spatial data, while traditional GIS mainly relies on manual analysis, rules, and spatial queries.
+12. The most influential features are likely distance to roads and land use classification, because they strongly reflect accessibility and existing development patterns. Parcel characteristics like area and compactness may also play an important role in distinguishing different land use types.
+13. The model can make errors in mixed or complex land-use areas and depends heavily on the quality and completeness of input data.
+14. It can help planners quickly identify land use patterns, support zoning decisions, and detect areas likely to change or develop.
+15. It may lead to biased decisions if the data is incomplete or inaccurate, and incorrect predictions could affect planning, property use, or development policies.
